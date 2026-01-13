@@ -1,8 +1,4 @@
-# ============================================================
 # Demo 2: Getting System Information
-# Time: 10 minutes
-# ============================================================
-# Learn how to gather information about your system
 
 # ---- PROCESS MANAGEMENT ----
 # See all running processes
@@ -15,17 +11,17 @@ Get-Process -Name "chrome" -ErrorAction SilentlyContinue
 Get-Process | Sort-Object CPU -Descending | Select-Object -First 10 Name, CPU, WorkingSet
 
 # Show top 10 processes by memory usage (WorkingSet is memory in bytes)
-Get-Process | Sort-Object WorkingSet -Descending | Select-Object -First 10 Name, @{Name="MemoryMB";Expression={[math]::Round($_.WorkingSet/1MB,2)}}
+Get-Process | Sort-Object WorkingSet -Descending | Select-Object -First 10 Name, @{Name = "MemoryMB"; Expression = { [math]::Round($_.WorkingSet / 1MB, 2) } }
 
 # ---- SERVICE MANAGEMENT ----
 # See all services
 Get-Service
 
 # See only running services
-Get-Service | Where-Object {$_.Status -eq "Running"}
+Get-Service | Where-Object { $_.Status -eq "Running" }
 
 # See only stopped services
-Get-Service | Where-Object {$_.Status -eq "Stopped"}
+Get-Service | Where-Object { $_.Status -eq "Stopped" }
 
 # Find a specific service
 Get-Service -Name "WinRM"
@@ -36,9 +32,9 @@ Get-PSDrive -PSProvider FileSystem
 
 # Get detailed disk information
 Get-WmiObject Win32_LogicalDisk | Select-Object DeviceID, 
-    @{Name="SizeGB";Expression={[math]::Round($_.Size/1GB,2)}},
-    @{Name="FreeGB";Expression={[math]::Round($_.FreeSpace/1GB,2)}},
-    @{Name="PercentFree";Expression={[math]::Round(($_.FreeSpace/$_.Size)*100,2)}}
+@{Name = "SizeGB"; Expression = { [math]::Round($_.Size / 1GB, 2) } },
+@{Name = "FreeGB"; Expression = { [math]::Round($_.FreeSpace / 1GB, 2) } },
+@{Name = "PercentFree"; Expression = { [math]::Round(($_.FreeSpace / $_.Size) * 100, 2) } }
 
 # ---- COMPUTER INFO ----
 # Get computer name

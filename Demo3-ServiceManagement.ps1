@@ -1,9 +1,4 @@
-# ============================================================
 # Demo 3: Service Management
-# Time: 10 minutes
-# ============================================================
-# Learn how to manage Windows services
-# NOTE: Some operations require administrative privileges
 
 # ---- VIEWING SERVICES ----
 # Get all services
@@ -23,7 +18,8 @@ Get-Service -Name "WinRM" | Format-List *
 $service = Get-Service -Name "WinRM"
 if ($service.Status -eq "Running") {
     Write-Host "WinRM service is running" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "WinRM service is not running" -ForegroundColor Red
 }
 
@@ -41,21 +37,21 @@ if ($service.Status -eq "Running") {
 
 # ---- FILTERING AND REPORTING ----
 # Find all stopped services
-Get-Service | Where-Object {$_.Status -eq "Stopped"} | Select-Object Name, DisplayName
+Get-Service | Where-Object { $_.Status -eq "Stopped" } | Select-Object Name, DisplayName
 
 # Find all automatic services that are stopped (potential issues)
 Get-WmiObject Win32_Service | 
-    Where-Object {$_.StartMode -eq "Auto" -and $_.State -ne "Running"} |
-    Select-Object Name, DisplayName, State, StartMode
+Where-Object { $_.StartMode -eq "Auto" -and $_.State -ne "Running" } |
+Select-Object Name, DisplayName, State, StartMode
 
 # Count services by status
 Get-Service | Group-Object Status | Select-Object Count, Name
 
 # ---- EXPORTING SERVICE INFO ----
 # Export running services to a CSV file
-Get-Service | Where-Object {$_.Status -eq "Running"} | 
-    Select-Object Name, DisplayName, Status |
-    Export-Csv "C:\Temp\RunningServices.csv" -NoTypeInformation
+Get-Service | Where-Object { $_.Status -eq "Running" } | 
+Select-Object Name, DisplayName, Status |
+Export-Csv "C:\Temp\RunningServices.csv" -NoTypeInformation
 
 Write-Host "Service list exported to C:\Temp\RunningServices.csv" -ForegroundColor Green
 
