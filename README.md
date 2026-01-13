@@ -34,27 +34,6 @@ Welcome! This package contains everything you need to deliver or attend the Powe
 ✓ Remote computer management  
 ✓ Writing practical automation scripts  
 
----
-
-## ⏰ Schedule
-
-**0:00 - 0:15** - Introduction & Setup  
-**0:15 - 0:30** - Why PowerShell & The Five Commands  
-**0:30 - 1:00** - Demo 1: File Management (with practice)  
-**1:00 - 1:10** - BREAK  
-
-**1:10 - 1:45** - Demo 2: System Information (with practice)  
-**1:45 - 2:15** - Demo 3: Service Management (with practice)  
-**2:15 - 2:25** - BREAK  
-
-**2:25 - 2:40** - Writing Better Scripts (concepts)  
-**2:40 - 3:20** - Demo 4: Remote Management (with practice)  
-**3:20 - 3:30** - BREAK  
-
-**3:30 - 4:00** - Demo 5: Complete Automation Script  
-**4:00 - 4:15** - Wrap-up, Q&A, Resources  
-
----
 
 ## 🚀 Quick Start for Instructors
 
@@ -83,10 +62,6 @@ Welcome! This package contains everything you need to deliver or attend the Powe
 - Join r/PowerShell on Reddit
 - Google is your friend - you don't need to memorize
 
-### For Instructors:
-- Email materials to participants
-- Collect feedback for next time
-- Offer follow-up support via email
 
 ---
 
