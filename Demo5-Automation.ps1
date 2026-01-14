@@ -107,7 +107,7 @@ else {
 }
 
 # ---- UPTIME ----
-$uptime = (Get-Date) - $os.ConvertToDateTime($os.LastBootUpTime)
+$uptime = (Get-Date) - ([Management.ManagementDateTimeConverter]::ToDateTime($os.LastBootUpTime))
 $report += "`nSYSTEM UPTIME:`n"
 $report += "Days: $($uptime.Days), Hours: $($uptime.Hours), Minutes: $($uptime.Minutes)`n"
 
